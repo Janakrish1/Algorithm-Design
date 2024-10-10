@@ -1,62 +1,60 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-// Function to merge two sorted subarrays using an auxiliary array
+
+void sortByLeftShift(vector<int> &A, int m, int n, vector<int> &Aux) {
+    int i = m - 1, j = m + n - 1;
+    while(i >= 0 && j >= i) {
+        if(Aux[i] > A[j]) {
+            int temp = Aux[i];
+            for(int k = i;k < j;k++) 
+                A[k] = A[k + 1];
+            A[j] = temp;
+            i--;
+        }
+        j--;
+    }
+}
+
+void sortByRightShift(vector<int> &A, int m, int n, vector<int> &Aux) {
+    int i = 0, j = m;
+    while(i < m && j < m + n) {
+        if(A[i] > Aux[j]) {
+            int temp = Aux[j];
+            for(int k = j;k > i;k--) 
+                A[k] = A[k - 1];
+            A[i] = temp;
+            j++;
+        }
+        i++;
+    }
+}
+
+// Function to merge two sorted subarrays using an auxiliary array of size min(m, n)
 void mergeWithAux(vector<int> &A, int m, int n) {
     // Determine the smaller subarray and create the auxiliary array
-    bool auxFromFirst = m <= n;
     int auxLen = min(m, n);
-
+    int totalLen = m + n;
     vector<int> Aux(auxLen);
+    bool isLeft = true;
 
-    // Copy elements into the auxiliary array
-    if (auxFromFirst) {
-        // Copy the first m elements into the auxiliary array
-        for (int i = 0; i < auxLen; i++) {
+    if(m <= n) {
+        for(int i = 0;i < m;i++) 
             Aux[i] = A[i];
-        }
-    } else {
-        // Copy the last n elements into the auxiliary array
-        for (int i = 0; i < auxLen; i++) {
-            Aux[i] = A[m + i];
-        }
+    }
+    else {
+        for(int i = m;i < m + n;i++)
+            Aux[i] = A[i];
+        isLeft = false;
     }
 
-    // i is pointer for the non-aux part (larger subarray)
-    // j is pointer for the auxiliary array
-    // k is the pointer to merge elements back into the original array
-    int i = auxFromFirst ? m : 0;  // Start of the larger subarray
-    int j = 0;                     // Pointer for auxiliary array
-    int k = 0;                     // Pointer to merge elements back
-
-    // Merge the two subarrays
-    while (i < m + n && j < auxLen) {
-        if (auxFromFirst) {
-            // Merging auxiliary array with the second subarray
-            if (Aux[j] <= A[m + k]) {
-                A[k++] = Aux[j++];
-            } else {
-                A[k++] = A[m + k];
-            }
-        } else {
-            // Merging first subarray with auxiliary array
-            if (A[i] <= Aux[j]) {
-                A[k++] = A[i++];
-            } else {
-                A[k++] = Aux[j++];
-            }
-        }
+    if(isLeft) {
+        sortByLeftShift(A, m, n, Aux);
+    }   
+    else {
+        sortByRightShift(A, m, n, Aux);
     }
 
-    // If there are remaining elements in the auxiliary array
-    while (j < auxLen) {
-        A[k++] = Aux[j++];
-    }
-
-    // If there are remaining elements in the larger subarray
-    while (i < m + n) {
-        A[k++] = A[i++];
-    }
 }
 
 int main() {
@@ -87,3 +85,4 @@ int main() {
 
     return 0;
 }
+

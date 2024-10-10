@@ -1,6 +1,10 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+/*
+* Time Complexity - O(log(num2))
+* Space Complexity - O(1)
+*/
 long long alaCarteMultiplication(long long num1, long long num2) {
     long long ans = 0;
     bool isNeg1 = false, isNeg2 = false;
@@ -15,10 +19,11 @@ long long alaCarteMultiplication(long long num1, long long num2) {
     while(num2 > 0) {
         if(num2 & 1) 
             ans += num1;
-        num1 <<= 1;
-        num2 >>= 1;
+        num1 <<= 1; // Bitwise to multiply by 2
+        num2 >>= 1; // Bitwise to divide by 2
     }
 
+    // Checking if ans should be positive or not
     if((!isNeg1 && !isNeg2) || (isNeg1 && isNeg2))
         return ans;
 
@@ -40,7 +45,7 @@ int main() {
 
         cout << num1 << " * " << num2 << " = " << ans;
 
-        cout << "\n---------------------------------------------------\n";
+        cout << "\n--------------------------------------------------------------------------------------------------\n";
     }  
     return 0;
 }

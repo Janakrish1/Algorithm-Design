@@ -1,6 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+// Binary search to find the position to insert the target in n
 int binarySearch(vector<int> &A, int low, int high, int target) {
     while(low <= high) {
         int mid = (low + high) >> 1;
@@ -12,6 +13,7 @@ int binarySearch(vector<int> &A, int low, int high, int target) {
     return low;
 }
 
+// Function to insert the element in it's right position by right shifting the array
 void insert(vector<int> &A, int start, int pos, int temp) {
     for(int i = start;i < pos;i++) {
         A[i] = A[i + 1];
@@ -19,6 +21,7 @@ void insert(vector<int> &A, int start, int pos, int temp) {
     A[pos] = temp;
 }
 
+// Function to sort the array A which contains two sorted subarrays
 void sortWithoutAux(vector<int> &A, int m, int n) {
     // Base Case
     // If one subarray is empty other would be sorted so return A
