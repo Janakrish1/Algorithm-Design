@@ -1,9 +1,721 @@
-The count of solutions for N Queens problem where n = 1 is 1
-The count of solutions for N Queens problem where n = 2 is 0
-The count of solutions for N Queens problem where n = 3 is 0
-The count of solutions for N Queens problem where n = 4 is 2
-The count of solutions for N Queens problem where n = 5 is 10
-The count of solutions for N Queens problem where n = 6 is 4
-The count of solutions for N Queens problem where n = 7 is 40
-The count of solutions for N Queens problem where n = 8 is 92
-The count of solutions for N Queens problem where n = 9 is 352
+
+------------------------------------------------------------------------------------------------------
+
+Step 1:
+Promising function returns true so we include weight 2
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+------------------------------------------------------------------------------------------------------
+
+Step 2:
+Promising function returns true so we include weight 10
+Now the Include array looks like below:
+{ 2, 10,  } W = 12
+
+------------------------------------------------------------------------------------------------------
+
+Step 3:
+Promising function returns true so we include weight 13
+Now the Include array looks like below:
+{ 2, 10, 13,  } W = 25
+
+------------------------------------------------------------------------------------------------------
+
+Step 4:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 2, 10, 13, 17,  } W = 42
+
+------------------------------------------------------------------------------------------------------
+
+Step 5:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13, 17,  } W = 42
+
+------------------------------------------------------------------------------------------------------
+
+Step 6:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13, 17,  } W = 42
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13,  } W = 25
+
+------------------------------------------------------------------------------------------------------
+
+Step 7:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 10, 13, 22,  } W = 47
+
+------------------------------------------------------------------------------------------------------
+
+Step 8:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13, 22,  } W = 47
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13,  } W = 25
+
+------------------------------------------------------------------------------------------------------
+
+Step 9:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 13,  } W = 25
+
+Backtracking occurs here and now we remove the weight 13
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10,  } W = 12
+
+------------------------------------------------------------------------------------------------------
+
+Step 10:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 2, 10, 17,  } W = 29
+
+------------------------------------------------------------------------------------------------------
+
+Step 11:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 10, 17, 22,  } W = 51
+
+------------------------------------------------------------------------------------------------------
+
+Step 12:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 17, 22,  } W = 51
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 17,  } W = 29
+
+------------------------------------------------------------------------------------------------------
+
+Step 13:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 17,  } W = 29
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10,  } W = 12
+
+------------------------------------------------------------------------------------------------------
+
+Step 14:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 10, 22,  } W = 34
+
+------------------------------------------------------------------------------------------------------
+
+Step 15:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10, 22,  } W = 34
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10,  } W = 12
+
+------------------------------------------------------------------------------------------------------
+
+Step 16:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 10,  } W = 12
+
+Backtracking occurs here and now we remove the weight 10
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+------------------------------------------------------------------------------------------------------
+
+Step 17:
+Promising function returns true so we include weight 13
+Now the Include array looks like below:
+{ 2, 13,  } W = 15
+
+------------------------------------------------------------------------------------------------------
+
+Step 18:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 2, 13, 17,  } W = 32
+
+------------------------------------------------------------------------------------------------------
+
+Step 19:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13, 17,  } W = 32
+
+------------------------------------------------------------------------------------------------------
+
+Step 20:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13, 17,  } W = 32
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13,  } W = 15
+
+------------------------------------------------------------------------------------------------------
+
+Step 21:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 13, 22,  } W = 37
+
+------------------------------------------------------------------------------------------------------
+
+Step 22:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13, 22,  } W = 37
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13,  } W = 15
+
+------------------------------------------------------------------------------------------------------
+
+Step 23:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 13,  } W = 15
+
+Backtracking occurs here and now we remove the weight 13
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+------------------------------------------------------------------------------------------------------
+
+Step 24:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 2, 17,  } W = 19
+
+------------------------------------------------------------------------------------------------------
+
+Step 25:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 17, 22,  } W = 41
+
+------------------------------------------------------------------------------------------------------
+
+Step 26:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 17, 22,  } W = 41
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 17,  } W = 19
+
+------------------------------------------------------------------------------------------------------
+
+Step 27:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 17,  } W = 19
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+------------------------------------------------------------------------------------------------------
+
+Step 28:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 2, 22,  } W = 24
+
+------------------------------------------------------------------------------------------------------
+
+Step 29:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2, 22,  } W = 24
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+------------------------------------------------------------------------------------------------------
+
+Step 30:
+Promising function returns true so we include weight 42
+Now the Include array looks like below:
+{ 2, 42,  } W = 44
+
+Backtracking occurs here and now we remove the weight 42
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 2,  } W = 2
+
+Backtracking occurs here and now we remove the weight 2
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
+
+------------------------------------------------------------------------------------------------------
+
+Step 31:
+Promising function returns true so we include weight 10
+Now the Include array looks like below:
+{ 10,  } W = 10
+
+------------------------------------------------------------------------------------------------------
+
+Step 32:
+Promising function returns true so we include weight 13
+Now the Include array looks like below:
+{ 10, 13,  } W = 23
+
+------------------------------------------------------------------------------------------------------
+
+Step 33:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 10, 13, 17,  } W = 40
+
+------------------------------------------------------------------------------------------------------
+
+Step 34:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13, 17,  } W = 40
+
+------------------------------------------------------------------------------------------------------
+
+Step 35:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13, 17,  } W = 40
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13,  } W = 23
+
+------------------------------------------------------------------------------------------------------
+
+Step 36:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 10, 13, 22,  } W = 45
+
+------------------------------------------------------------------------------------------------------
+
+Step 37:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13, 22,  } W = 45
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13,  } W = 23
+
+------------------------------------------------------------------------------------------------------
+
+Step 38:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 13,  } W = 23
+
+Backtracking occurs here and now we remove the weight 13
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10,  } W = 10
+
+------------------------------------------------------------------------------------------------------
+
+Step 39:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 10, 17,  } W = 27
+
+------------------------------------------------------------------------------------------------------
+
+Step 40:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 10, 17, 22,  } W = 49
+
+------------------------------------------------------------------------------------------------------
+
+Step 41:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 17, 22,  } W = 49
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 17,  } W = 27
+
+------------------------------------------------------------------------------------------------------
+
+Step 42:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 17,  } W = 27
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10,  } W = 10
+
+------------------------------------------------------------------------------------------------------
+
+Step 43:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 10, 22,  } W = 32
+
+------------------------------------------------------------------------------------------------------
+
+Step 44:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10, 22,  } W = 32
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10,  } W = 10
+
+------------------------------------------------------------------------------------------------------
+
+Step 45:
+Promising function returns true so we include weight 42
+Now the Include array looks like below:
+{ 10, 42,  } W = 52
+
+Valid Combination equals to target 52 = { 10, 42,  } W = 52
+
+Backtracking occurs here and now we remove the weight 42
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 10,  } W = 10
+
+Backtracking occurs here and now we remove the weight 10
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
+
+------------------------------------------------------------------------------------------------------
+
+Step 46:
+Promising function returns true so we include weight 13
+Now the Include array looks like below:
+{ 13,  } W = 13
+
+------------------------------------------------------------------------------------------------------
+
+Step 47:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 13, 17,  } W = 30
+
+------------------------------------------------------------------------------------------------------
+
+Step 48:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 13, 17, 22,  } W = 52
+
+Valid Combination equals to target 52 = { 13, 17, 22,  } W = 52
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13, 17,  } W = 30
+
+------------------------------------------------------------------------------------------------------
+
+Step 49:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13, 17,  } W = 30
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13,  } W = 13
+
+------------------------------------------------------------------------------------------------------
+
+Step 50:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 13, 22,  } W = 35
+
+------------------------------------------------------------------------------------------------------
+
+Step 51:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13, 22,  } W = 35
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13,  } W = 13
+
+------------------------------------------------------------------------------------------------------
+
+Step 52:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 13,  } W = 13
+
+Backtracking occurs here and now we remove the weight 13
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
+
+------------------------------------------------------------------------------------------------------
+
+Step 53:
+Promising function returns true so we include weight 17
+Now the Include array looks like below:
+{ 17,  } W = 17
+
+------------------------------------------------------------------------------------------------------
+
+Step 54:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 17, 22,  } W = 39
+
+------------------------------------------------------------------------------------------------------
+
+Step 55:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 17, 22,  } W = 39
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 17,  } W = 17
+
+------------------------------------------------------------------------------------------------------
+
+Step 56:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 17,  } W = 17
+
+Backtracking occurs here and now we remove the weight 17
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
+
+------------------------------------------------------------------------------------------------------
+
+Step 57:
+Promising function returns true so we include weight 22
+Now the Include array looks like below:
+{ 22,  } W = 22
+
+------------------------------------------------------------------------------------------------------
+
+Step 58:
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{ 22,  } W = 22
+
+Backtracking occurs here and now we remove the weight 22
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
+
+------------------------------------------------------------------------------------------------------
+
+Step 59:
+Promising function returns true so we include weight 42
+Now the Include array looks like below:
+{ 42,  } W = 42
+
+Backtracking occurs here and now we remove the weight 42
+
+Now we backtrack and exlude the weight
+ and call the function with the next index
+
+Now the Include array looks like below:
+{  } W = 0
