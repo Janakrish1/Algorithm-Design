@@ -33,13 +33,6 @@ struct Pair {
   double distance;
 };
 
-class Compare {
-public:
-  bool operator()(Pair &a, Pair &b) {
-    return a.distance > b.distance;
-  }
-};
-
 class Graph {
 private:
   vector<Edge> edges;
@@ -109,22 +102,37 @@ public:
     }
   }
 
+  int getMinDistanceIndex(vector<int> &vis, vector<double> &dist) {
+    int u = 0;
+    double d = INT_MAX;
+
+    for(int i = 0;i < MAX_SIZE;i++) {
+      if(vis[i] && dist[i] < d) {
+        d = dist[i];
+        u = i;
+      }
+    }
+    return u;
+  }
+
   void findShortestPathUsingDijkstra(int src) {
     vector<double> dist(MAX_SIZE, INT_MAX);
-    priority_queue<Pair, vector<Pair>, Compare> minHeap;
     vector<int> parent(MAX_SIZE);
+    vector<int> vis(MAX_SIZE, 0);
 
     for(int i = 0;i < MAX_SIZE;i++)
       parent[i] = i;
 
-    minHeap.push({src, 0});
+    
     dist[src] = 0;
+    vis[src] = 1;
+    int cnt = 1;
 
-    while(!minHeap.empty()) {
-      auto top = minHeap.top();
-      minHeap.pop();
-      int u = top.node;
-      double distance = top.distance;
+    while(cnt > 0) {
+      int u = getMinDistanceIndex(vis, dist);
+      double distance = dist[u];
+      vis[u] = 0;
+      cnt--;
 
       LinkedListNode *curr = graph[u]->next;
       while(curr) {
@@ -132,8 +140,9 @@ public:
         int v = curr->data;
         if(d + distance < dist[v]) {
           dist[v] = d + distance;
-          minHeap.push({v, dist[v]});
+          vis[v] = 1;
           parent[v] = u;
+          cnt++;
         }
         curr = curr->next;
       }
