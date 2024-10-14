@@ -48,7 +48,7 @@ public:
       int v = stoi(token);
 
       getline(stream, token, ',');
-      double dist = stoi(token);
+      double dist = stod(token);
 
       mx = max({mx, u, v});
       edges.push_back({u, v, dist});
@@ -62,22 +62,9 @@ public:
     for(auto &e : edges) {
       int u = e.node1;
       int v = e.node2;
-      int dist = e.distance;
+      double dist = e.distance;
       graph[u][v] = dist;
     }
-  }
-
-  int getMinDistanceIndex(vector<int> &vis, vector<double> &dist) {
-    int u = 0;
-    double d = INT_MAX;
-
-    for(int i = 0;i < MAX_SIZE;i++) {
-      if(vis[i] && dist[i] < d) {
-        d = dist[i];
-        u = i;
-      }
-    }
-    return u;
   }
 
   void findShortestPathUsingFloyd() {

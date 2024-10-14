@@ -69,7 +69,7 @@ public:
       int v = stoi(token);
 
       getline(stream, token, ',');
-      double dist = stoi(token);
+      double dist = stod(token);
 
       mx = max({mx, u, v});
       edges.push_back({u, v, dist});
@@ -85,7 +85,7 @@ public:
     }
   }
 
-  void addEdge(int u, int v, int dist) {
+  void addEdge(int u, int v, double dist) {
     LinkedListNode *newNode = new LinkedListNode(v, dist);
     LinkedListNode *temp = graph[u]->next;
     graph[u]->next = newNode;
@@ -98,7 +98,7 @@ public:
     for(auto &e : edges) {
       int u = e.node1;
       int v = e.node2;
-      int dist = e.distance;
+      double dist = e.distance;
       addEdge(u, v, dist);
     }
   }
@@ -170,6 +170,18 @@ public:
     }
     cout << "]" << endl;
   }
+
+  void destroy() {
+    for (int i = 0; i < MAX_SIZE; i++) {
+        LinkedListNode* curr = graph[i];
+        while (curr != NULL) {
+            LinkedListNode* temp = curr;
+            curr = curr->next;
+            delete temp;
+        }
+    }
+    graph.clear();
+  }
 };
 
 
@@ -193,6 +205,7 @@ void DijkstraUsingMatrix(string filename, string testCaseFilename) {
   }
 
   G.findShortestPathUsingDijkstra(0);
+  G.destroy();
 }
 
 int main() {

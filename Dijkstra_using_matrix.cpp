@@ -51,7 +51,7 @@ public:
       int v = stoi(token);
 
       getline(stream, token, ',');
-      double dist = stoi(token);
+      double dist = stod(token);
 
       mx = max({mx, u, v});
       edges.push_back({u, v, dist});
@@ -65,7 +65,7 @@ public:
     for(auto &e : edges) {
       int u = e.node1;
       int v = e.node2;
-      int dist = e.distance;
+      double dist = e.distance;
       graph[u][v] = dist;
     }
   }
