@@ -75,6 +75,7 @@ public:
       edges.push_back({u, v, dist});
     }
     MAX_SIZE = mx + 1;
+    return mx;
   }
 
   void initNodes() {
