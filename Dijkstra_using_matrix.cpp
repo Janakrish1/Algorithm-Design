@@ -87,37 +87,34 @@ public:
   }
 
   void findShortestPathUsingDijkstra(int src) {
-    vector<double> dist(MAX_SIZE, INT_MAX);
-    vector<int> parent(MAX_SIZE);
+    shortestPath.clear();
+    paths.clear();
+    shortestPath.resize(MAX_SIZE, INT_MAX);
+    paths.resize(MAX_SIZE);
     vector<int> vis(MAX_SIZE, 0);
 
     for(int i = 0;i < MAX_SIZE;i++)
-      parent[i] = i;
+      paths[i] = i;
 
-    dist[src] = 0;
+    shortestPath[src] = 0;
     vis[src] = 1;
     int cnt = 1;
 
     while(cnt > 0) {
-      int u = getMinDistanceIndex(vis, dist);
-      double distance = dist[u];
+      int u = getMinDistanceIndex(vis, shortestPath);
+      double distance = shortestPath[u];
       vis[u] = 0;
       cnt--;
 
       for(int v = 0;v < MAX_SIZE;v++) {
-        if(graph[u][v] > 0 && graph[u][v] + distance < dist[v]) {
-          dist[v] = graph[u][v] + distance;
+        if(graph[u][v] > 0 && graph[u][v] + distance < shortestPath[v]) {
+          shortestPath[v] = graph[u][v] + distance;
           vis[v] = 1;
-          parent[v] = u;
+          paths[v] = u;
           cnt++;
         }
       }
     }
-    
-    shortestPath.resize(MAX_SIZE);
-    paths.resize(MAX_SIZE);
-    paths = parent;
-    shortestPath = dist;
   }
 
   void printPath(int source, int dest) {
@@ -148,15 +145,15 @@ void DijkstraUsingMatrix(string filename, string testCaseFilename) {
   
   G.createGraph();
 
-  // if(filename == testCaseFilename) {
-  //   int source, dest;
-  //   for(int testcase = 0;testcase < 3;testcase++) {
-  //     cin >> source >> dest;
-  //     G.findShortestPathUsingDijkstra(source);
-  //     G.printPath(source, dest);
-  //     cout << "-----------------------------------------------------------------------------------------------";
-  //   }
-  // }
+  if(filename == testCaseFilename) {
+    int source, dest;
+    for(int testcase = 0;testcase < 3;testcase++) {
+      cin >> source >> dest;
+      G.findShortestPathUsingDijkstra(source);
+      G.printPath(source, dest);
+      cout << "-----------------------------------------------------------------------------------------------";
+    }
+  }
 
   G.findShortestPathUsingDijkstra(0);
 
@@ -191,7 +188,7 @@ int main() {
     }
   }
 
-  exportTimePerformance();
+  // exportTimePerformance();
 
   return 0;
 }

@@ -178,7 +178,7 @@ int main() {
     }
   }
 
-  exportTimePerformance();
+  // exportTimePerformance();
 
   return 0;
 }
