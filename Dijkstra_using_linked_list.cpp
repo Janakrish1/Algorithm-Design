@@ -187,7 +187,7 @@ public:
 
 
 
-void DijkstraUsingMatrix(string filename, string testCaseFilename) {
+void DijkstraUsingLinkedList(string filename, string testCaseFilename) {
   auto start = high_resolution_clock::now();
   Graph G;
   G.clear();
@@ -237,7 +237,7 @@ int main() {
   for(const auto &entry : fs::directory_iterator(inputFolder)) {
     if(entry.path().extension() == ".csv") {
       string filename = entry.path().string();
-      DijkstraUsingMatrix(filename, testCaseFilename);
+      DijkstraUsingLinkedList(filename, testCaseFilename);
     }
   }
 

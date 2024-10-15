@@ -181,15 +181,15 @@ void FloydUsingLinkedList(string filename, string testCaseFilename) {
   
   G.createGraph();
 
-  // if(filename == testCaseFilename) {
-  //   int source, dest;
-  //   for(int testcase = 0;testcase < 3;testcase++) {
-  //     cin >> source >> dest;
-  //     G.findShortestPathUsingFloyd();
-  //     G.printPath(source, dest);
-  //     cout << "-----------------------------------------------------------------------------------------------";
-  //   }
-  // }
+  if(filename == testCaseFilename) {
+    int source, dest;
+    for(int testcase = 0;testcase < 3;testcase++) {
+      cin >> source >> dest;
+      G.findShortestPathUsingFloyd();
+      G.printPath(source, dest);
+      cout << "-----------------------------------------------------------------------------------------------";
+    }
+  }
 
   G.findShortestPathUsingFloyd();
   G.destroy();
