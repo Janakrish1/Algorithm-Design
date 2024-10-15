@@ -1,9 +1,12 @@
 #include "bits/stdc++.h"
 #include <filesystem>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 namespace fs = filesystem;
+vector<pair<string, double>> time_performance;
 
 struct Edge {
   int node1;
@@ -137,6 +140,7 @@ public:
 
 
 void DijkstraUsingMatrix(string filename, string testCaseFilename) {
+  auto start = high_resolution_clock::now();
   Graph G;
   G.clear();
 
@@ -144,24 +148,41 @@ void DijkstraUsingMatrix(string filename, string testCaseFilename) {
   
   G.createGraph();
 
-  if(filename == testCaseFilename) {
-    int source, dest;
-    for(int testcase = 0;testcase < 3;testcase++) {
-      cin >> source >> dest;
-      G.findShortestPathUsingDijkstra(source);
-      G.printPath(source, dest);
-      cout << "-----------------------------------------------------------------------------------------------";
-    }
-  }
+  // if(filename == testCaseFilename) {
+  //   int source, dest;
+  //   for(int testcase = 0;testcase < 3;testcase++) {
+  //     cin >> source >> dest;
+  //     G.findShortestPathUsingDijkstra(source);
+  //     G.printPath(source, dest);
+  //     cout << "-----------------------------------------------------------------------------------------------";
+  //   }
+  // }
 
   G.findShortestPathUsingDijkstra(0);
+
+  auto end = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(end - start);
+  double time_taken = duration.count() / 1e6; 
+  time_performance.push_back({filename, time_taken});
+}
+
+void exportTimePerformance() {
+  ofstream outFile("dijkstra_matrix_time.csv");
+  outFile << "Filename,TimeTaken(s)" << endl;
+  for(auto &[filename, time] : time_performance) {
+    stringstream ss(filename);
+    string file;
+    getline(ss, file, '/');
+    getline(ss, file, '/');
+    outFile << file << "," << time << endl;
+  }
 }
 
 int main() {
-  
-
   string inputFolder = "Project2_Input_File";
   string testCaseFilename = "Project2_Input_File/Project2_Input_File4.csv";
+  
   
   for(const auto &entry : fs::directory_iterator(inputFolder)) {
     if(entry.path().extension() == ".csv") {
@@ -169,6 +190,8 @@ int main() {
       DijkstraUsingMatrix(filename, testCaseFilename);
     }
   }
+
+  exportTimePerformance();
 
   return 0;
 }

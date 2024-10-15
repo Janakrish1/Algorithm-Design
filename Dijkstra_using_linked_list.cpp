@@ -1,9 +1,13 @@
 #include "bits/stdc++.h"
 #include <filesystem>
+#include <chrono>
 
 using namespace std;
 
 namespace fs = filesystem;
+
+using namespace chrono;
+vector<pair<string, double>> time_performance;
 
 struct LinkedListNode {
   int data;
@@ -187,6 +191,7 @@ public:
 
 
 void DijkstraUsingMatrix(string filename, string testCaseFilename) {
+  auto start = high_resolution_clock::now();
   Graph G;
   G.clear();
 
@@ -194,18 +199,36 @@ void DijkstraUsingMatrix(string filename, string testCaseFilename) {
   
   G.createGraph();
 
-  if(filename == testCaseFilename) {
-    int source, dest;
-    for(int testcase = 0;testcase < 3;testcase++) {
-      cin >> source >> dest;
-      G.findShortestPathUsingDijkstra(source);
-      G.printPath(source, dest);
-      cout << "-----------------------------------------------------------------------------------------------";
-    }
-  }
+  // if(filename == testCaseFilename) {
+  //   int source, dest;
+  //   for(int testcase = 0;testcase < 3;testcase++) {
+  //     cin >> source >> dest;
+  //     G.findShortestPathUsingDijkstra(source);
+  //     G.printPath(source, dest);
+  //     cout << "-----------------------------------------------------------------------------------------------";
+  //   }
+  // }
 
   G.findShortestPathUsingDijkstra(0);
   G.destroy();
+
+  auto end = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(end - start);
+  double time_taken = duration.count() / 1e6; 
+  time_performance.push_back({filename, time_taken});
+}
+
+void exportTimePerformance() {
+  ofstream outFile("dijkstra_linkedlist_time.csv");
+  outFile << "Filename,TimeTaken(s)" << endl;
+  for(auto &[filename, time] : time_performance) {
+    stringstream ss(filename);
+    string file;
+    getline(ss, file, '/');
+    getline(ss, file, '/');
+    outFile << file << "," << time << endl;
+  }
 }
 
 int main() {
@@ -220,6 +243,8 @@ int main() {
       DijkstraUsingMatrix(filename, testCaseFilename);
     }
   }
+
+  exportTimePerformance();
 
   return 0;
 }

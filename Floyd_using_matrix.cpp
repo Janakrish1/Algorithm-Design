@@ -1,9 +1,13 @@
 #include "bits/stdc++.h"
 #include <filesystem>
+#include <chrono>
 
 using namespace std;
 
 namespace fs = filesystem;
+
+using namespace chrono;
+vector<pair<string, double>> time_performance;
 
 struct Edge {
   int node1;
@@ -122,23 +126,43 @@ public:
 
 
 void FloydUsingMatrix(string filename, string testCaseFilename) {
+  auto start = high_resolution_clock::now();
+  
   Graph G;
 
   G.readInputs(filename);
   
   G.createGraph();
 
-  if(filename == testCaseFilename) {
-    int source, dest;
-    for(int testcase = 0;testcase < 3;testcase++) {
-      cin >> source >> dest;
-      G.findShortestPathUsingFloyd();
-      G.printPath(source, dest);
-      cout << "-----------------------------------------------------------------------------------------------";
-    }
-  }
+  // if(filename == testCaseFilename) {
+  //   int source, dest;
+  //   for(int testcase = 0;testcase < 3;testcase++) {
+  //     cin >> source >> dest;
+  //     G.findShortestPathUsingFloyd();
+  //     G.printPath(source, dest);
+  //     cout << "-----------------------------------------------------------------------------------------------";
+  //   }
+  // }
 
   G.findShortestPathUsingFloyd();
+
+  auto end = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(end - start);
+  double time_taken = duration.count() / 1e6; 
+  time_performance.push_back({filename, time_taken});
+}
+
+void exportTimePerformance() {
+  ofstream outFile("floyd_matrix_time.csv");
+  outFile << "Filename,TimeTaken(s)" << endl;
+  for(auto &[filename, time] : time_performance) {
+    stringstream ss(filename);
+    string file;
+    getline(ss, file, '/');
+    getline(ss, file, '/');
+    outFile << file << "," << time << endl;
+  }
 }
 
 int main() {
@@ -150,10 +174,11 @@ int main() {
   for(const auto &entry : fs::directory_iterator(inputFolder)) {
     if(entry.path().extension() == ".csv") {
       string filename = entry.path().string();
-      if(filename == testCaseFilename)
       FloydUsingMatrix(filename, testCaseFilename);
     }
   }
+
+  exportTimePerformance();
 
   return 0;
 }
