@@ -1,42 +1,11 @@
-Current Maximum Profit = 0
-
-This is promising because current bound is greater than the current best. Bound = 60 and Current Best = 0
-Included item 1 with profit 20 and weight 2
-Now the current best = 20
-
-This is promising because current bound is greater than the current best. Bound = 60 and Current Best = 20
-Included item 2 with profit 30 and weight 5
-Now the current best = 50
-
-This is promising because current bound is greater than the current best. Bound = 60 and Current Best = 50
-Included item 3 with profit 35 and weight 7
-This is not promising because current bound is lesser than the current best. Current Best = 50
-
-Backtracking here and excluded item 3
-This is promising because current bound is greater than the current best. Bound = 58 and Current Best = 50
-Included item 4 with profit 12 and weight 3
-This is not promising because current bound is lesser than the current best. Current Best = 50
-
-Backtracking here and excluded item 4
-This is promising because current bound is greater than the current best. Bound = 53 and Current Best = 50
-Included item 5 with profit 3 and weight 1
-Now the current best = 53
-
-This is not promising because current bound is lesser than the current best. Current Best = 53
-
-Backtracking here and excluded item 5
-This is not promising because current bound is lesser than the current best. Current Best = 53
-
-Backtracking here and excluded item 2
-This is promising because current bound is greater than the current best. Bound = 55 and Current Best = 53
-Included item 3 with profit 35 and weight 7
-Now the current best = 55
-
-This is not promising because current bound is lesser than the current best. Current Best = 55
-
-Backtracking here and excluded item 3
-This is not promising because current bound is lesser than the current best. Current Best = 55
-
-Backtracking here and excluded item 1
-This is not promising because current bound is lesser than the current best. Current Best = 55
-Max Profit = 55
+Data exported to sqrtTimes.csv
+x = 999 // Test Number 
+Total number of iterations = 10000
+Total time for standard 1/sqrt(x): 0.00169254 seconds
+Total time for Fast Inverse Sqrt: 0.00175987 seconds
+Average time for standard 1/sqrt(x): 1.69254e-07 seconds
+Average time for Fast Inverse Sqrt: 1.75987e-07 seconds
+Time difference per iteration: 6.7333e-09 seconds
+Standard Square Root Result: 0.0316386
+Fast Inverse Sqrt Result: 0.0315856
+Difference in results: 5.29625e-05
