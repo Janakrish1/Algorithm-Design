@@ -1,11 +1,117 @@
-Data exported to sqrtTimes.csv
-x = 999 // Test Number 
-Total number of iterations = 10000
-Total time for standard 1/sqrt(x): 0.00169254 seconds
-Total time for Fast Inverse Sqrt: 0.00175987 seconds
-Average time for standard 1/sqrt(x): 1.69254e-07 seconds
-Average time for Fast Inverse Sqrt: 1.75987e-07 seconds
-Time difference per iteration: 6.7333e-09 seconds
-Standard Square Root Result: 0.0316386
-Fast Inverse Sqrt Result: 0.0315856
-Difference in results: 5.29625e-05
+Initial Bound - 6
+
+Current Vertex - 0
+Compute Bound to be 6
+
+Current Vertex - 1
+Compute Bound to be 10
+
+Current Vertex - 4
+Compute Bound to be 10
+
+Current Vertex - 2
+Compute Bound to be 11
+
+Current Vertex - 2
+Compute Bound to be 12
+
+Current Vertex - 3
+Compute Bound to be 18
+
+Current Vertex - 3
+Compute Bound to be 19
+
+Current Vertex - 6
+Compute Bound to be 21
+
+Current Vertex - 7
+Compute Bound to be 22
+
+Current Vertex - 6
+Compute Bound to be 22
+
+Current Vertex - 7
+Compute Bound to be 23
+
+Current Vertex - 4
+Compute Bound to be 23
+
+Current Vertex - 5
+Compute Bound to be 24
+
+Current Vertex - 5
+Compute Bound to be 24
+
+Current Vertex - 4
+Compute Bound to be 24
+
+Current Vertex - 4
+Compute Bound to be 24
+
+Current Vertex - 4
+Compute Bound to be 24
+
+Current Vertex - 5
+Compute Bound to be 25
+
+Current Vertex - 5
+Compute Bound to be 25
+
+Current Vertex - 4
+Compute Bound to be 25
+
+Current Vertex - 4
+Compute Bound to be 25
+
+Current Vertex - 3
+Compute Bound to be 28
+
+Current Vertex - 3
+Compute Bound to be 29
+
+Current Vertex - 1
+Compute Bound to be 32
+
+Current Vertex - 7
+Compute Bound to be 32
+
+Current Vertex - 4
+Compute Bound to be 32
+
+Current Vertex - 1
+Compute Bound to be 32
+
+Current Vertex - 4
+Compute Bound to be 32
+
+Current Vertex - 7
+Compute Bound to be 33
+
+Current Vertex - 4
+Compute Bound to be 33
+
+Current Vertex - 5
+Compute Bound to be 34
+
+Current Vertex - 4
+Compute Bound to be 34
+
+Current Vertex - 4
+Compute Bound to be 34
+
+Current Vertex - 5
+Compute Bound to be 35
+
+Current Vertex - 4
+Compute Bound to be 35
+
+Travelling Salesperson Path:
+0 - 1
+1 - 2
+2 - 6
+6 - 3
+3 - 7
+7 - 5
+5 - 4
+4 - 0
+Minimum Tour = 35
