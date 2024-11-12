@@ -1,0 +1,40 @@
+Filename - 6n.csv
+Sequence of Nodes - [1, 0, 5, 3, 2, 4, 1]
+Tour = 2455
+
+Filename - 7n.csv
+Sequence of Nodes - [0, 1, 5, 2, 3, 4, 6, 0]
+Tour = 1993
+
+Filename - 10n.csv
+Sequence of Nodes - [2, 7, 0, 9, 1, 3, 8, 4, 5, 6, 2]
+Tour = 3532
+
+Filename - 11n.csv
+Sequence of Nodes - [0, 3, 5, 2, 9, 7, 8, 4, 10, 6, 1, 0]
+Tour = 2867
+
+Filename - 12n.csv
+Sequence of Nodes - [10, 6, 5, 1, 2, 3, 8, 9, 0, 4, 7, 11, 10]
+Tour = 2930
+
+Filename - 13n.csv
+Sequence of Nodes - [1, 10, 7, 12, 2, 9, 0, 11, 8, 3, 6, 4, 5, 1]
+Tour = 3031
+
+Filename - 4n.csv
+Sequence of Nodes - [0, 3, 2, 1, 0]
+Tour = 2611
+
+Filename - 8n.csv
+Sequence of Nodes - [3, 7, 1, 6, 0, 2, 4, 5, 3]
+Tour = 2692
+
+Filename - 9n.csv
+Sequence of Nodes - [1, 7, 3, 0, 8, 4, 2, 5, 6, 1]
+Tour = 2588
+
+Filename - 5n.csv
+Sequence of Nodes - [2, 4, 1, 0, 3, 2]
+Tour = 1290
+
