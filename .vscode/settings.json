@@ -10,7 +10,8 @@
         "__split_buffer": "cpp",
         "deque": "cpp",
         "list": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
