@@ -1,1 +1,1 @@
-Common elements are: 534 31 1 2 4 
+In Order Traversal of the B-Tree: 1 2 3 3 4 4 4 4 5 6 6 67 74 
